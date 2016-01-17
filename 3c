@@ -1,0 +1,70 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Telerik.Web.UI;
+
+namespace TelerikWebApp3
+{
+    public partial class WebForm3 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!Page.IsPostBack)
+            {
+                tcdate.SelectedDate= DateTime.Today.Date;
+                srdate.SelectedDate = DateTime.Today.Date;
+             //   rd1.DataSource = new List<string>() { "Asia", "Africa", "North America", "South America", "Europe", "Australia", "Antarctica" };
+               // rd1.DataBind();
+            }
+        }
+        protected void RadDropDownList1_ItemSelected(object sender, DropDownListEventArgs e)
+        {
+            if (rd1.SelectedItem.Value == "41")
+            {
+                f1.Visible = true;
+                f2.Visible = false;
+             
+                //EventLogConsole1.LoggedEvents.Add(String.Format("ItemSelected event is fired, currently selected item: '{0}'", RadDropDownList1.SelectedItem.Text));
+            }
+            else
+            {
+
+                f1.Visible = true;
+                f2.Visible = true;
+             
+            }
+        }
+        protected void RadDropDownList1_SelectedIndexChanged(object sender, DropDownListEventArgs e)
+        {
+            if (rd1.SelectedItem.Value == "41")
+            {
+                f1.Visible = true;
+                f2.Visible = false;
+
+                //EventLogConsole1.LoggedEvents.Add(String.Format("ItemSelected event is fired, currently selected item: '{0}'", RadDropDownList1.SelectedItem.Text));
+            }
+            else
+            {
+
+                f1.Visible = false;
+                f2.Visible = true;
+
+            }
+        }
+        protected void btn_save(object sender, EventArgs e)
+        {
+            if (l1.Text == "" && l2.Text == "")
+            {
+
+            }
+            
+        }
+        protected void btn_save2(object sender, EventArgs e)
+        {
+            if (sr1.Text == "")
+            {
+            }
+
+        }
+    }
+}
