@@ -1,0 +1,76 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Default" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <telerik:RadStyleSheetManager id="RadStyleSheetManager1" runat="server" />
+</head>
+<body text="#ffffff">
+    <form id="form1" runat="server">
+    <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+        <Scripts>
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js" />
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js" />
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js" />
+        </Scripts>
+    </telerik:RadScriptManager>
+    <script type="text/javascript">
+        //Put your JavaScript code here.
+    </script>
+    <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
+    </telerik:RadAjaxManager>
+    
+    <telerik:RadDropDownList runat="server" ID="get" 
+          OnClientItemSelected="RadDropDownList1_ItemSelected" RenderMode="Lightweight" >
+  <Items>
+    <telerik:DropDownListItem runat="server"  Selected="true" Text="hr" Value="ht" />
+    <telerik:DropDownListItem runat="server" Text="njds" Value="kn" />
+   
+    </Items> 
+    </telerik:RadDropDownList>
+    <telerik:RadDropDownList ID="RadDropDownList1" runat="server">
+    <Items>
+        <telerik:DropDownListItem runat="server" Text="One" Value="1" />
+        <telerik:DropDownListItem runat="server" Text="Two" Value="2" />
+        <telerik:DropDownListItem runat="server" Text="Three" Value="3" />
+    </Items>
+</telerik:RadDropDownList>
+    <telerik:RadNumericTextBox ID="t1" Visible="true" runat="server">
+    </telerik:RadNumericTextBox>
+   
+    <telerik:RadNumericTextBox ID="t2" runat="server" Visible="false">
+    </telerik:RadNumericTextBox>
+     <telerik:RadDatePicker ID="rdp1" OnSelectedDateChanged="RadDatePicker1_SelectedDateChanged" runat="server" AutoPostBack="true">
+    
+    </telerik:RadDatePicker>
+
+  <%--  <table runat="server" id="t1" visible="false">
+    <tr>
+ <asp:TextBox runat="server">
+ </asp:TextBox>
+    
+    </tr>
+
+    
+    </table>
+    <table runat="server" visible="true" id="t2">
+    <tr>
+ <asp:TextBox runat="server">
+ </asp:TextBox>
+    </tr>
+    </table>
+  --%> 
+  <telerik:RadCheckBox runat="server" AutoPostBack="true" OnClientCheckedChanged="fre">
+
+  
+  </telerik:RadCheckBox>
+  <telerik:RadGrid AllowPaging="true" OnNeedDataSource="RadGrid2_NeedDataSource" runat="server" AllowAutomaticDeletes="true" MasterTableView-AllowAutomaticDeletes="true" >
+  
+  
+  </telerik:RadGrid>
+
+    </form>
+</body>
+</html>
