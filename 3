@@ -1,0 +1,108 @@
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="WebForm3.aspx.cs" Inherits="TelerikWebApp3.WebForm3" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+        <Scripts>
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js" />
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js" />
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js" />
+        </Scripts>
+    </telerik:RadScriptManager>
+<telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server">
+     <telerik:RadDropDownList RenderMode="Lightweight" ID="rd1"
+                runat="server"
+                 
+                Width="700px"
+                AutoPostBack="true"
+                DefaultMessage="Select Continent..." OnSelectedIndexChanged="RadDropDownList1_SelectedIndexChanged">
+         <%--       ItemSelected="RadDropDownList1_ItemSelected"--%>
+               <Items>
+               <telerik:DropDownListItem Value="41" Text="Test Cases" runat="server" Selected="true" />
+               <telerik:DropDownListItem Value="42" Text="Stability Rate" runat="server" />
+               </Items>
+                
+
+            </telerik:RadDropDownList>
+           
+    
+    <telerik:RadFormDecorator Visible="true" RenderMode="Lightweight" ID="FormDecorator1" runat="server" DecoratedControls="all" DecorationZoneID="decorationZone">
+    </telerik:RadFormDecorator>
+    <div>
+    <fieldset id="f1" runat="server" visible="true">
+                    <legend>Text Boxes</legend>
+                    <label>L1</label>
+                    <telerik:RadNumericTextBox runat="server" ID="l1" Width="150px">
+                    </telerik:RadNumericTextBox>
+                    
+                    <div>
+                        &nbsp;
+                    </div>
+                    <label>L2</label>
+                                        <telerik:RadNumericTextBox runat="server" ID="l2" Width="150px">
+                    </telerik:RadNumericTextBox>
+                    <div>
+                        &nbsp;
+                    </div>
+                    <label>Region Type</label>
+                    <telerik:RadDropDownList runat="server">
+                    <Items>
+                    <telerik:DropDownListItem Text="Emerging" Selected="true" runat="server" Value="E" />
+                    <telerik:DropDownListItem Text="ATSC+DVB" runat="server" Value="NULL" />
+                    </Items>
+                    
+                    </telerik:RadDropDownList>
+                    <div>
+                        &nbsp;
+                    </div>
+                    <label>Date</label>
+                    <telerik:RadDatePicker runat="server" ID="tcdate">
+                    
+                    </telerik:RadDatePicker>
+                    <div>
+                        &nbsp;
+                    </div>
+                      <telerik:RadButton RenderMode="Lightweight" ID="tcbutton" runat="server"
+                        Text="Save" OnClick="btn_save">
+                    </telerik:RadButton>
+                    
+
+
+                </fieldset >
+                </div>
+                <fieldset id="f2" runat="server" visible="false">
+                    <legend>Stability Rate</legend>
+                    <label>Stability Rate</label>
+                    <telerik:RadNumericTextBox runat="server" ID="sr1" Width="150px">
+                    </telerik:RadNumericTextBox>
+                    
+                    
+                    <div>
+                        &nbsp;
+                    </div>
+                    <label>Region Type</label>
+                    <telerik:RadDropDownList ID="RadDropDownList1" runat="server">
+                    <Items>
+                    <telerik:DropDownListItem Text="Emerging" Selected="true" runat="server" Value="E" />
+                    <telerik:DropDownListItem Text="ATSC+DVB" runat="server" Value="NULL" />
+                    </Items>
+                    
+                    </telerik:RadDropDownList>
+                    <div>
+                        &nbsp;
+                    </div>
+                    <label>Date</label>
+                    <telerik:RadDatePicker ID="srdate" runat="server">
+                    
+                    </telerik:RadDatePicker>
+                    <div>
+                        &nbsp;
+                    </div>
+                      <telerik:RadButton RenderMode="Lightweight" ID="srbutton" runat="server"
+                        Text="Save" OnClick="btn_save2">
+                    </telerik:RadButton>
+
+                    
+                </fieldset>
+    </telerik:RadAjaxPanel>
+</asp:Content>
