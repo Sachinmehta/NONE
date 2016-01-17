@@ -1,0 +1,75 @@
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="WebForm4.aspx.cs" Inherits="TelerikWebApp3.WebForm4" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+<%--<telerik:RadGrid runat="server" ID="featuregrid" AllowPaging="true" >
+--%>
+
+<telerik:RadScriptManager runat="server" ID="RadScriptManager1" />
+    <telerik:RadSkinManager ID="RadSkinManager1" runat="server"/>
+    
+    <telerik:RadAjaxManager runat="server">
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="RadGrid1">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="RadGrid1" LoadingPanelID="RadAjaxLoadingPanel1" />
+                    <telerik:AjaxUpdatedControl ControlID="SavedChangesList" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            <telerik:AjaxSetting AjaxControlID="ConfigurationPanel1">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="RadGrid1" LoadingPanelID="RadAjaxLoadingPanel1" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+        </AjaxSettings>
+    </telerik:RadAjaxManager>
+    <telerik:RadAjaxLoadingPanel runat="server" ID="RadAjaxLoadingPanel1"></telerik:RadAjaxLoadingPanel>
+    <telerik:RadFormDecorator RenderMode="Lightweight" ID="RadFormDecorator1" runat="server" DecorationZoneID="demo" DecoratedControls="All" EnableRoundedCorners="false" />
+    <div id="demo" class="demo-container no-bg">
+        <telerik:RadListBox RenderMode="Lightweight" runat="server" ID="SavedChangesList" Width="600px" Height="200px" Visible="false"></telerik:RadListBox>
+      <telerik:RadDatePicker runat="server" AutoPostBack="true" OnSelectedDateChanged="hy">
+      
+      </telerik:RadDatePicker>
+      
+      
+      
+      
+        <telerik:RadGrid RenderMode="Lightweight" ID="RadGrid1" GridLines="None" runat="server" AllowAutomaticDeletes="True"
+            AllowAutomaticInserts="True" PageSize="10" OnItemDeleted="RadGrid1_ItemDeleted" OnItemInserted="RadGrid1_ItemInserted"
+            OnItemUpdated="RadGrid1_ItemUpdated" OnPreRender="RadGrid1_PreRender" AllowAutomaticUpdates="True" AllowPaging="True"
+            AutoGenerateColumns="False" OnBatchEditCommand="RadGrid1_BatchEditCommand">
+            <%--OnNeedDataSource="featuredatasource" >--%>
+            
+            <MasterTableView CommandItemDisplay="TopAndBottom"
+                 HorizontalAlign="NotSet" EditMode="Batch" AutoGenerateColumns="False">
+                <BatchEditingSettings EditType="Cell" />
+                <%--<SortExpressions>
+                    <telerik:GridSortExpression FieldName="Features" SortOrder="Descending" />
+                </SortExpressions>--%>
+                <Columns>
+                    <telerik:GridBoundColumn DataField="Features" HeaderStyle-Width="210px" HeaderText="Features"
+                        UniqueName="Features">
+                        <ColumnValidationSettings EnableRequiredFieldValidation="true">
+                            <RequiredFieldValidator ForeColor="Red" Text="*This field is required" Display="Dynamic">
+                            </RequiredFieldValidator>
+                        </ColumnValidationSettings>
+                    </telerik:GridBoundColumn>
+                    
+                    
+                    <telerik:GridButtonColumn ConfirmText="Delete this product?" ConfirmDialogType="RadWindow"
+                        ConfirmTitle="Delete" HeaderText="Delete" HeaderStyle-Width="50px" ButtonType="ImageButton"
+                        CommandName="Delete" Text="Delete" UniqueName="DeleteColumn">
+                    </telerik:GridButtonColumn>
+                </Columns>
+            </MasterTableView>
+            <ClientSettings AllowKeyboardNavigation="true"></ClientSettings>
+        </telerik:RadGrid>
+    </div>
+    <telerik:RadGrid runat="server" OnNeedDataSource="featuredatasource" AllowAutomaticDeletes="true" AllowPaging="true" AllowAutomaticUpdates="true">
+
+    </telerik:RadGrid>
+    
+
+
+</asp:Content>
