@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Telerik.Web.UI;
+
+namespace TelerikWebApp3
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!Page.IsPostBack)
+            {
+                rd1.DataSource = new List<string>() { "Asia", "Africa", "North America", "South America", "Europe", "Australia", "Antarctica" };
+                rd1.DataBind();
+            }
+        }
+        protected void RadDropDownList1_ItemSelected(object sender, DropDownListEventArgs e)
+        {
+            if (rd1.SelectedItem.Value == "Africa")
+            {
+                gt.Visible = false;
+                ht.Visible = true;
+                //EventLogConsole1.LoggedEvents.Add(String.Format("ItemSelected event is fired, currently selected item: '{0}'", RadDropDownList1.SelectedItem.Text));
+            }
+            else
+            {
+                gt.Visible = false;
+                ht.Visible = true;
+            }
+        }
+        protected void RadDropDownList1_SelectedIndexChanged(object sender, DropDownListEventArgs e)
+        {
+            if (rd1.SelectedItem.Value == "Africa")
+            {
+                gt.Visible = true;
+                ht.Visible = true;
+                r.Visible = true;
+                // EventLogConsole1.LoggedEvents.Add(String.Format("SelectedIndexChanged event is fired, currently selected item: '{0}'", RadDropDownList1.SelectedItem.Text));
+            }
+            else
+            {
+                r.Visible = true;
+                gt.Visible = true;
+                ht.Visible = false;
+                FormDecorator1.Visible = false;
+                fs1.Visible = true;
+                Fieldset1.Visible = false;
+            }
+        }
+    }
+}
