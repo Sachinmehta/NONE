@@ -1,0 +1,62 @@
+using System;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using Telerik.Web.UI;
+using Telerik.Web.UI.Calendar;
+public partial class Default : System.Web.UI.Page 
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+    protected void RadDropDownList1_ItemSelected(object sender, DropDownListEventArgs e)
+    {
+        //if (get.SelectedItem.Value == "ht")
+        //{
+        //    t1.Visible = true;
+        //    t2.Visible = false;
+        //}
+        //else
+        //{
+        //    t2.Visible = true;
+        //    t1.Visible = false;
+        
+        //}
+        
+    }
+    protected void RadDatePicker1_SelectedDateChanged(object sender, SelectedDateChangedEventArgs e)
+    {
+        
+        //EventLogConsole1.LoggedEvents.Add("<b>SelectedDateChanged</b> event fired:<br />");
+    }
+    protected void RadGrid2_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
+    {
+        (sender as RadGrid).DataSource = GetDataTable();
+    }
+
+    public DataTable GetDataTable()
+    {
+        string query = "SELECT * FROM Sample";
+
+        String ConnString = ConfigurationManager.ConnectionStrings["db"].ConnectionString;
+        SqlConnection conn = new SqlConnection(ConnString);
+        SqlDataAdapter adapter = new SqlDataAdapter();
+        adapter.SelectCommand = new SqlCommand(query, conn);
+
+        DataTable myDataTable = new DataTable();
+
+        conn.Open();
+        try
+        {
+            adapter.Fill(myDataTable);
+        }
+        finally
+        {
+            conn.Close();
+        }
+
+        return myDataTable;
+    }
+
+}
