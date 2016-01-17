@@ -1,0 +1,98 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="TelerikWebApp3.WebForm1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+  <telerik:RadStyleSheetManager id="RadStyleSheetManager1" runat="server" />
+</head>
+<body text="#ffffff">
+    <form id="form1" runat="server">
+    <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+        <Scripts>
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js" />
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js" />
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js" />
+        </Scripts>
+    </telerik:RadScriptManager>
+  <%--  <script type="text/javascript">
+        //Put your JavaScript code here.
+    </script>
+    <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
+    </telerik:RadAjaxManager>--%>
+
+   <%--
+   <telerik:RadDropDownList runat="server" ID="d1" OnClientItemSelected="Select1">
+   <Items>
+   <telerik:DropDownListItem runat="server" Selected="true" Value="Hello" />
+   <telerik:DropDownListItem runat="server" Selected="true" Value="Hi" />
+   
+   </Items>
+   
+   </telerik:RadDropDownList>--%>
+   
+   <telerik:RadAjaxPanel runat="server">
+     <telerik:RadDropDownList RenderMode="Lightweight" ID="rd1"
+                runat="server"
+                 
+                Width="700px"
+                AutoPostBack="true"
+                DefaultMessage="Select Continent..." OnSelectedIndexChanged="RadDropDownList1_SelectedIndexChanged">
+         <%--       ItemSelected="RadDropDownList1_ItemSelected"--%>
+               
+                
+
+            </telerik:RadDropDownList>
+            <telerik:RadLabel runat="server" Text="L1" Visible="false" ID="r"></telerik:RadLabel>
+    <telerik:RadNumericTextBox ID="gt" Visible="false" runat="server" DisplayText="h1" >
+    </telerik:RadNumericTextBox>
+    <telerik:RadnumericTextBox ID="ht" Visible="false" runat="server" DisplayText="h2">
+    </telerik:RadnumericTextBox>
+    
+    <telerik:RadFormDecorator Visible="true" RenderMode="Lightweight" ID="FormDecorator1" runat="server" DecoratedControls="all" DecorationZoneID="decorationZone">
+    </telerik:RadFormDecorator>
+    
+    <fieldset runat="server" visible="false" id="fs1">
+    <legend>
+    Hello
+    </legend>
+    <label>hhhg</label>
+    <telerik:RadNumericTextBox runat="server"></telerik:RadNumericTextBox>
+    <label runat="server" >ghgghhg</label>
+     <telerik:RadNumericTextBox runat="server" DisplayText="ju"></telerik:RadNumericTextBox>
+    
+    </fieldset>
+
+    <fieldset runat="server" visible="true" id="Fieldset1">
+    <legend>
+    Hello
+    </legend>
+    <%--<label>hhhg</label>
+--%>
+    <telerik:RadNumericTextBox ID="RadNumericTextBox1" runat="server"></telerik:RadNumericTextBox>
+  <br />
+   <%--<label id="Label1" runat="server" >ghgghhg</label>
+   --%> <telerik:RadNumericTextBox ID="RadNumericTextBox2" runat="server"></telerik:RadNumericTextBox>
+    
+    </fieldset>
+    <div>
+    <fieldset>
+                    <legend>Text Boxes</legend>
+                    <label>Username (&lt;label&gt;):&nbsp;</label>
+                    <asp:TextBox runat="server" ID="UsernameBox" Width="150px" TabIndex="7"></asp:TextBox>
+                    <div>
+                        &nbsp;
+                    </div>
+                    <label>Password (&lt;label&gt;):&nbsp;</label>
+                    <asp:TextBox runat="server" TextMode="Password" ID="PasswordBox" Width="150px" TabIndex="8"></asp:TextBox>
+                    <div>
+                        &nbsp;
+                    </div>
+                </fieldset>
+                </div>
+    </telerik:RadAjaxPanel>
+   
+    </form>
+</body>
+</html>
